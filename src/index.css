@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    line-height: 1.5;
+    font-family: "Poppins", Arial, Helvetica;
+    /* font-weight: 400;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%; */
+}
+
+/* reuseable style rules for tailwindcss */
+@layer components {
+    .flex-items-center {
+        @apply flex justify-center items-center;
+    }
+    .flex-items-start {
+        @apply flex justify-center items-start;
+    }
+    .flex-justify-start {
+        @apply flex justify-start items-start;
+    }
+    .main-wrapper {
+        @apply w-[90%] h-[90vh] bg-light py-12 relative overflow-y-scroll lg:overflow-y-hidden;
+    }
+    .timer {
+        @apply text-light text-lg bg-dark p-2 mx-[1px] rounded-md font-bold;
+    }
+}
