@@ -33,4 +33,10 @@
     .timer {
         @apply text-light text-lg bg-dark p-2 mx-[1px] rounded-md font-bold;
     }
+    .input {
+        @apply block w-full outline-none bg-gray rounded-lg py-4 px-10;
+    }
+    .input-badge {
+        @apply w-5 absolute top-1/3 right-[2%];
+    }
 }
