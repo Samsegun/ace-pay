@@ -7,7 +7,7 @@ import dots from "./assets/dots.svg";
 
 function App() {
     return (
-        <div className='bg-flower bg-center bg-cover bg-no-repeat min-h-screen flex-items-center'>
+        <div className='min-h-screen bg-center bg-no-repeat bg-cover bg-flower flex-items-center'>
             <main className='main-wrapper'>
                 <button
                     type='button'
@@ -16,12 +16,12 @@ function App() {
                 </button>
 
                 <div className='w-11/12 mx-auto h-full flex-justify-start flex-wrap gap-[5%]'>
-                    <section className='w-full lg:basis-[65%]'>
+                    <section className='w-full lg:w-auto lg:basis-[65%]'>
                         {/* header */}
-                        <div className='flex items-center justify-between flex-wrap gap-4'>
-                            <div className='flex-items-center gap-3'>
+                        <div className='flex flex-wrap items-center justify-between gap-4'>
+                            <div className='gap-3 flex-items-center'>
                                 <img src={logo} alt='ace coin banner' />
-                                <h1 className='text-xl'>
+                                <h1>
                                     <span className='font-bold text-dark'>
                                         AceCoin
                                     </span>
@@ -33,7 +33,7 @@ function App() {
                                 {/* increase padding from 640px */}
                                 <span className='timer'>0</span>
                                 <span className='timer'>1</span>
-                                <span className='mx-1 font-bold text-xl'>
+                                <span className='mx-1 text-xl font-bold'>
                                     :
                                 </span>
                                 <span className='timer'>1</span>
@@ -47,9 +47,9 @@ function App() {
                                 <div className='mb-8'>
                                     <label
                                         htmlFor='card-number'
-                                        className='block relative font-bold text-xl leading-10 mb-4'>
+                                        className='relative block mb-4 font-bold'>
                                         Card Number
-                                        <span className='block text-xs opacity-60'>
+                                        <span className='block text-xs opacity-40'>
                                             Enter the 16-digit-card number on
                                             the card
                                         </span>
@@ -86,7 +86,7 @@ function App() {
                                             <span>Edit</span>
                                         </span>
                                     </label>
-                                    {/* input will be nested inside of a span tag to enable 
+                                    {/* input is nested inside of a span tag to enable 
                                 positioning of badges */}
                                     <span className='relative'>
                                         <img
@@ -114,12 +114,12 @@ function App() {
                                     </span>
                                 </div>
 
-                                <div className='mb-8'>
+                                <div className='mb-8 lg:flex'>
                                     <label
                                         htmlFor='cvv'
-                                        className='block relative font-bold text-xl leading-10 mb-4'>
+                                        className='relative block mb-4 font-bold'>
                                         CVV Number
-                                        <span className='block text-xs opacity-60'>
+                                        <span className='block text-xs opacity-40'>
                                             Enter the 3 or 4 digit number on the
                                             card
                                         </span>
@@ -135,17 +135,17 @@ function App() {
                                         <img
                                             src={dots}
                                             alt=''
-                                            className='input-badge opacity-50'
+                                            className='opacity-50 input-badge'
                                         />
                                     </span>
                                 </div>
 
-                                <div className='mb-8'>
+                                <div className='mb-8 lg:flex'>
                                     <label
                                         htmlFor='expiry'
-                                        className='block relative font-bold text-xl leading-10 mb-4'>
+                                        className='relative block mb-4 font-bold'>
                                         Expiry Date
-                                        <span className='block text-xs opacity-60'>
+                                        <span className='block text-xs opacity-40'>
                                             Enter the expiration date of the
                                             card
                                         </span>
@@ -161,17 +161,17 @@ function App() {
                                         {/* <img
                                             src={dots}
                                             alt=''
-                                            className='input-badge opacity-50'
+                                            className='opacity-50 input-badge'
                                         /> */}
                                     </span>
                                 </div>
 
-                                <div className='mb-8'>
+                                <div className='mb-8 lg:flex'>
                                     <label
                                         htmlFor='password'
-                                        className='block relative font-bold text-xl leading-10 mb-4'>
+                                        className='relative block mb-4 font-bold'>
                                         Password
-                                        <span className='block text-xs opacity-60'>
+                                        <span className='block text-xs opacity-40'>
                                             Enter your Dynamic password
                                         </span>
                                     </label>
@@ -186,7 +186,7 @@ function App() {
                                         <img
                                             src={dots}
                                             alt=''
-                                            className='input-badge opacity-50'
+                                            className='opacity-50 input-badge'
                                         />
                                     </span>
                                 </div>
@@ -194,15 +194,20 @@ function App() {
                         </div>
                     </section>
 
-                    <section className='bg-blue lg:basis-[30%]'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quos adipisci iste cupiditate maiores enim ut quasi
-                        molestiae pariatur excepturi accusamus, quo
-                        reprehenderit suscipit vitae blanditiis possimus
-                        consequuntur inventore ad architecto molestias sapiente
-                        commodi ex. Iusto fugit numquam voluptatum reiciendis
-                        alias!
+                    <section className='h-full w-full lg:w-auto lg:basis-[30%] flex flex-col justify-between gap-12'>
+                        <div className='flex justify-center'>
+                            <span className='block h-10 rounded-b-full w-14 bg-blue'></span>
+                        </div>
+
+                        <div className='h-full bg-light-blue'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Fugiat corrupti iusto expedita quia! Aperiam
+                            facilis laborum quia illo ipsa. Eligendi asperiores
+                            hic quos sit sed laudantium et eum, fuga odit animi
+                            veritatis ad voluptatem rerum distinctio quisquam
+                            recusandae veniam fugit! Hic aspernatur sapiente,
+                            facere ullam ex est. Eos, in provident!
+                        </div>
                     </section>
                 </div>
             </main>
