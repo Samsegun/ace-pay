@@ -4,6 +4,7 @@ import closeBtn from "./assets/close.svg";
 import mcSymbol from "./assets/mc_symbol.svg";
 import verified from "./assets/verified-badge.svg";
 import dots from "./assets/dots.svg";
+import docket from "./assets/docket.png";
 
 function App() {
     return (
@@ -15,32 +16,36 @@ function App() {
                     <img src={closeBtn} alt='' />
                 </button>
 
-                <div className='w-11/12 mx-auto h-full flex-justify-start flex-wrap gap-[5%]'>
-                    <section className='w-full lg:w-auto lg:basis-[65%]'>
-                        {/* header */}
-                        <div className='flex flex-wrap items-center justify-between gap-4'>
-                            <div className='gap-3 flex-items-center'>
-                                <img src={logo} alt='ace coin banner' />
-                                <h1>
-                                    <span className='font-bold text-dark'>
-                                        AceCoin
-                                    </span>
-                                    <span className='opacity-70'>Pay</span>
-                                </h1>
-                            </div>
-
-                            <div>
-                                {/* increase padding from 640px */}
-                                <span className='timer'>0</span>
-                                <span className='timer'>1</span>
-                                <span className='mx-1 text-xl font-bold'>
-                                    :
+                {/* header */}
+                <header className='flex flex-wrap items-center justify-between w-11/12 mx-auto gap-[5%]'>
+                    <div className='flex justify-between items-center lg:basis-[65%]'>
+                        <div className='gap-3 flex-items-center'>
+                            <img src={logo} alt='ace coin banner' />
+                            <h1>
+                                <span className='font-bold text-dark'>
+                                    AceCoin
                                 </span>
-                                <span className='timer'>1</span>
-                                <span className='timer'>9</span>
-                            </div>
+                                <span className='opacity-70'>Pay</span>
+                            </h1>
                         </div>
 
+                        <div>
+                            {/* increase padding from 640px */}
+                            <span className='timer'>0</span>
+                            <span className='timer'>1</span>
+                            <span className='mx-1 text-xl font-bold'>:</span>
+                            <span className='timer'>1</span>
+                            <span className='timer'>9</span>
+                        </div>
+                    </div>
+
+                    <div className='justify-center hidden lg:flex lg:basis-[30%]'>
+                        <span className='block h-10 rounded-b-full w-14 bg-blue'></span>
+                    </div>
+                </header>
+
+                <div className='w-11/12 mx-auto h-full flex-justify-start flex-wrap gap-[5%]'>
+                    <section className='w-full lg:w-auto lg:basis-[65%]'>
                         {/* form */}
                         <div className='my-8'>
                             <form>
@@ -190,23 +195,78 @@ function App() {
                                         />
                                     </span>
                                 </div>
+
+                                <button
+                                    type='button'
+                                    className='w-full p-4 text-light font-bold rounded-lg bg-[#025EFFff]'>
+                                    Pay Now
+                                </button>
                             </form>
                         </div>
                     </section>
 
                     <section className='h-full w-full lg:w-auto lg:basis-[30%] flex flex-col justify-between gap-12'>
-                        <div className='flex justify-center'>
-                            <span className='block h-10 rounded-b-full w-14 bg-blue'></span>
-                        </div>
+                        <div className='flex items-end justify-center h-full p-8 rounded-lg bg-light-blue'>
+                            <div className='w-full'>
+                                <div className='p-2 border-b-2 border-opacity-50 border-dashed'>
+                                    <ul className='[&>li]:flex [&>li]:justify-between'>
+                                        <li className='mb-4'>
+                                            <span className='text-xs opacity-50'>
+                                                Company
+                                            </span>
+                                            <span className='text-xs font-semibold'>
+                                                Apple
+                                            </span>
+                                        </li>
+                                        <li className='mb-4'>
+                                            <span className='text-xs opacity-50'>
+                                                Order Number
+                                            </span>
+                                            <span className='text-xs font-bold'>
+                                                1266201
+                                            </span>
+                                        </li>
+                                        <li className='mb-4'>
+                                            <span className='text-xs opacity-50'>
+                                                Product
+                                            </span>
+                                            <span className='text-xs font-bold'>
+                                                MacBook Air
+                                            </span>
+                                        </li>
+                                        <li className='mb-4'>
+                                            <span className='text-xs opacity-50'>
+                                                VAT (20%)
+                                            </span>
+                                            <span className='text-xs font-bold'>
+                                                $100.00
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
 
-                        <div className='h-full bg-light-blue'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Fugiat corrupti iusto expedita quia! Aperiam
-                            facilis laborum quia illo ipsa. Eligendi asperiores
-                            hic quos sit sed laudantium et eum, fuga odit animi
-                            veritatis ad voluptatem rerum distinctio quisquam
-                            recusandae veniam fugit! Hic aspernatur sapiente,
-                            facere ullam ex est. Eos, in provident!
+                                <div className='flex items-center justify-between pt-8'>
+                                    <p className='flex flex-col'>
+                                        <span className='text-xs opacity-50'>
+                                            You have to Pay
+                                        </span>
+
+                                        <span className='text-2xl font-black'>
+                                            549
+                                            <span className='text-base font-semibold'>
+                                                .99
+                                            </span>{" "}
+                                            <span className='text-base font-semibold uppercase opacity-50'>
+                                                usd
+                                            </span>
+                                        </span>
+                                    </p>
+
+                                    <span className='w-5'>
+                                        <img src={docket} alt='totals' />
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </section>
                 </div>
