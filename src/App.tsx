@@ -1,6 +1,7 @@
 import "./App.css";
 import logo from "./assets/acelogo.png";
 import closeBtn from "./assets/close.svg";
+import pencil from "./assets/edit-pencil.svg";
 import mcSymbol from "./assets/mc_symbol.svg";
 import verified from "./assets/verified-badge.svg";
 import dots from "./assets/dots.svg";
@@ -59,35 +60,11 @@ function App() {
                                             the card
                                         </span>
                                         <span className='absolute top-[20%] right-0 flex-items-center text-blue text-sm'>
-                                            <svg
-                                                version='1.1'
-                                                id='Layer_1'
-                                                xmlns='http://www.w3.org/2000/svg'
-                                                xmlnsXlink='http://www.w3.org/1999/xlink'
-                                                x='0px'
-                                                y='0px'
-                                                viewBox='0 0 512 512'
-                                                xmlSpace='preserve'
-                                                fill='#0850df'
-                                                className='w-4 mr-2'>
-                                                <g>
-                                                    <g>
-                                                        <path
-                                                            d='M311.18,78.008L32.23,356.958L0.613,485.716c-1.771,7.209,0.355,14.818,5.604,20.067
-		c5.266,5.266,12.88,7.368,20.067,5.604l128.759-31.617l278.95-278.95L311.18,78.008z M40.877,471.123l10.871-44.271l33.4,33.4
-		L40.877,471.123z'
-                                                        />
-                                                    </g>
-                                                </g>
-                                                <g>
-                                                    <g>
-                                                        <path
-                                                            d='M502.598,86.818L425.182,9.402c-12.536-12.536-32.86-12.536-45.396,0l-30.825,30.825l122.812,122.812l30.825-30.825
-		C515.134,119.679,515.134,99.354,502.598,86.818z'
-                                                        />
-                                                    </g>
-                                                </g>
-                                            </svg>
+                                            <img
+                                                src={pencil}
+                                                alt='edit card number'
+                                                className='w-4 mr-2'
+                                            />
                                             <span>Edit</span>
                                         </span>
                                     </label>
@@ -107,8 +84,8 @@ function App() {
                                             pattern='[0-9\s]{13,19}'
                                             autoComplete='cc-number'
                                             maxLength={19}
-                                            placeholder='2412 - 7512 - 3412 - 3456'
-                                            className='input'
+                                            placeholder='2412   -   7512   -   3412   -   3456'
+                                            className='input sm:px-16'
                                         />
 
                                         <img
@@ -205,8 +182,8 @@ function App() {
                         </div>
                     </section>
 
-                    <section className='h-full w-full lg:w-auto lg:basis-[30%] flex flex-col justify-between gap-12'>
-                        <div className='flex items-end justify-center h-full p-8 rounded-lg bg-light-blue'>
+                    <section className='h-full w-full lg:w-auto lg:basis-[30%] flex flex-col justify-center gap-12'>
+                        <div className='flex items-end justify-center h-[90%] px-8 py-4 rounded-lg bg-light-blue'>
                             <div className='w-full'>
                                 <div className='p-2 border-b-2 border-opacity-50 border-dashed'>
                                     <ul className='[&>li]:flex [&>li]:justify-between'>
