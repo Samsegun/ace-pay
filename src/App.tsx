@@ -2,7 +2,7 @@ import "./App.css";
 import logo from "./assets/acelogo.png";
 import closeBtn from "./assets/close.svg";
 import pencil from "./assets/edit-pencil.svg";
-import mcSymbol from "./assets/mc_symbol.svg";
+// import mcSymbol from "./assets/mc_symbol.svg";
 import verified from "./assets/verified-badge.svg";
 import dots from "./assets/dots.svg";
 import chip from "./assets/chip.png";
@@ -18,7 +18,7 @@ function App() {
             <div className='main-wrapper'>
                 <button
                     type='button'
-                    className='absolute top-[2%] right-[2%] w-4'>
+                    className='absolute top-[1%] right-[4%] lg:top-[2%] lg:right-[2%] w-4'>
                     <img src={closeBtn} alt='' />
                 </button>
 
@@ -28,10 +28,12 @@ function App() {
                         <div className='gap-3 flex-items-center'>
                             <img src={logo} alt='ace coin banner' />
                             <h1>
-                                <span className='font-bold text-dark'>
+                                <span className='font-bold text-space-cadet'>
                                     AceCoin
                                 </span>
-                                <span className='opacity-70'>Pay</span>
+                                <span className='font-medium text-french-gray'>
+                                    Pay
+                                </span>
                             </h1>
                         </div>
 
@@ -60,7 +62,7 @@ function App() {
                                     <div className='mb-8'>
                                         <label
                                             htmlFor='card-number'
-                                            className='relative block mb-4 font-bold'>
+                                            className='relative block mb-4 font-bold text-space-cadet lg:leading-8 lg:tracking-wide'>
                                             Card Number
                                             <span className='block text-xs opacity-40'>
                                                 Enter the 16-digit-card number
@@ -77,12 +79,63 @@ function App() {
                                         </label>
                                         {/* input is nested inside of a span tag to enable 
                                 positioning of badges */}
-                                        <span className='relative'>
-                                            <img
+                                        <span className='block relative'>
+                                            {/* raw svg element is used here because of firefox rendering issues */}
+                                            <span className='absolute top-0 left-0 lg:left-[2%] z-10 w-8 h-full flex items-center'>
+                                                <svg
+                                                    xmlns='http://www.w3.org/2000/svg'
+                                                    width='2.11676in'
+                                                    height='1.5in'
+                                                    viewBox='0 0 152.407 108'
+                                                    className='w-full '>
+                                                    <g>
+                                                        <rect
+                                                            width='152.407'
+                                                            height='108'
+                                                            style={{
+                                                                fill: "none",
+                                                            }}
+                                                        />
+                                                        <g>
+                                                            <rect
+                                                                x='60.4117'
+                                                                y='25.6968'
+                                                                width='31.5'
+                                                                height='56.6064'
+                                                                style={{
+                                                                    fill: "#ff5f00",
+                                                                }}
+                                                            />
+                                                            <path
+                                                                d='M382.20839,306a35.9375,35.9375,0,0,1,13.7499-28.3032,36,36,0,1,0,0,56.6064A35.938,35.938,0,0,1,382.20839,306Z'
+                                                                transform='translate(-319.79649 -252)'
+                                                                style={{
+                                                                    fill: "#eb001b",
+                                                                }}
+                                                            />
+                                                            <path
+                                                                d='M454.20349,306a35.99867,35.99867,0,0,1-58.2452,28.3032,36.00518,36.00518,0,0,0,0-56.6064A35.99867,35.99867,0,0,1,454.20349,306Z'
+                                                                transform='translate(-319.79649 -252)'
+                                                                style={{
+                                                                    fill: "#f79e1b",
+                                                                }}
+                                                            />
+                                                            <path
+                                                                d='M450.76889,328.3077v-1.1589h.4673v-.2361h-1.1901v.2361h.4675v1.1589Zm2.3105,0v-1.3973h-.3648l-.41959.9611-.41971-.9611h-.365v1.3973h.2576v-1.054l.3935.9087h.2671l.39351-.911v1.0563Z'
+                                                                transform='translate(-319.79649 -252)'
+                                                                style={{
+                                                                    fill: "#f79e1b",
+                                                                }}
+                                                            />
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </span>
+                                            {/* <img
                                                 src={mcSymbol}
                                                 alt='master card'
                                                 className='w-8 absolute top-1/3 left-[2%]'
-                                            />
+                                            /> */}
                                             <input
                                                 name='card-number'
                                                 id='card-number'
@@ -92,7 +145,7 @@ function App() {
                                                 autoComplete='cc-number'
                                                 maxLength={19}
                                                 placeholder='2412   -   7512   -   3412   -   3456'
-                                                className='input sm:px-16'
+                                                className='input text-justify px-9 sm:px-16'
                                             />
 
                                             <img
@@ -103,10 +156,10 @@ function App() {
                                         </span>
                                     </div>
 
-                                    <div className='mb-8 lg:flex'>
+                                    <div className='mb-8 lg:flex lg:justify-between lg:items-center '>
                                         <label
                                             htmlFor='cvv'
-                                            className='relative block mb-4 font-bold'>
+                                            className='relative block mb-4 font-bold text-space-cadet lg:leading-8 lg:tracking-wide'>
                                             CVV Number
                                             <span className='block text-xs opacity-40'>
                                                 Enter the 3 or 4 digit number on
@@ -114,7 +167,7 @@ function App() {
                                             </span>
                                         </label>
 
-                                        <span className='relative'>
+                                        <span className='relative lg:basis-1/2'>
                                             <input
                                                 name='cvv-number'
                                                 id='cvv'
@@ -129,10 +182,10 @@ function App() {
                                         </span>
                                     </div>
 
-                                    <div className='mb-8 lg:flex'>
+                                    <div className='mb-8 lg:flex lg:justify-between lg:items-center '>
                                         <label
                                             htmlFor='expiry'
-                                            className='relative block mb-4 font-bold'>
+                                            className='relative block mb-4 font-bold text-space-cadet lg:leading-8 lg:tracking-wide'>
                                             Expiry Date
                                             <span className='block text-xs opacity-40'>
                                                 Enter the expiration date of the
@@ -140,7 +193,7 @@ function App() {
                                             </span>
                                         </label>
 
-                                        <span className='relative'>
+                                        <span className='relative lg:basis-1/2'>
                                             <input
                                                 name='expiry'
                                                 id='expiry'
@@ -155,17 +208,17 @@ function App() {
                                         </span>
                                     </div>
 
-                                    <div className='mb-8 lg:flex'>
+                                    <div className='mb-8 lg:flex lg:justify-between lg:items-center '>
                                         <label
                                             htmlFor='password'
-                                            className='relative block mb-4 font-bold'>
+                                            className='relative block mb-4 font-bold text-space-cadet lg:leading-8 lg:tracking-wide'>
                                             Password
                                             <span className='block text-xs opacity-40'>
                                                 Enter your Dynamic password
                                             </span>
                                         </label>
 
-                                        <span className='relative'>
+                                        <span className='relative lg:basis-1/2'>
                                             <input
                                                 name='password'
                                                 id='password'
@@ -180,9 +233,7 @@ function App() {
                                         </span>
                                     </div>
 
-                                    <button
-                                        type='button'
-                                        className='w-full p-4 text-light font-bold rounded-lg bg-[#025EFFff]'>
+                                    <button type='button' className='pay-btn'>
                                         Pay Now
                                     </button>
                                 </form>
@@ -236,9 +287,9 @@ function App() {
                                 </div>
                             </div>
 
-                            <div className='flex items-end justify-center h-[100%] px-4 py-4 rounded-lg bg-light-blue lg:px-8'>
+                            <div className='payment-details'>
                                 <div className='w-full'>
-                                    <div className='p-2 border-b-2 border-opacity-50 border-dashed'>
+                                    <div className='p-2 border-b-2 border-platinum border-dashed text-space-cadet'>
                                         <ul className='[&>li]:flex [&>li]:justify-between'>
                                             <li className='mb-4'>
                                                 <span className='text-xs opacity-50'>

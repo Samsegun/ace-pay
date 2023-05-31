@@ -28,22 +28,32 @@
         @apply flex items-start justify-start;
     }
     .main-wrapper {
-        @apply w-[90%] max-w-screen-2xl h-[95vh] md:h-[95vh] 
-        xl:h-[95vh] 2xl:h-fit bg-light py-12 rounded-md relative overflow-y-scroll xl:overflow-y-hidden;
+        @apply w-[90%] max-w-screen-2xl h-auto my-4 lg:my-0 lg:h-[95vh] 
+         2xl:h-fit bg-light py-12 rounded-md relative overflow-y-scroll 2xl:overflow-y-hidden;
     }
     .timer {
-        @apply text-light text-lg bg-dark p-2 mx-[1px] rounded-md font-bold;
+        @apply text-light text-lg bg-space-cadet p-2 lg:p-3 mx-[1px] rounded-md font-bold;
     }
     .form-flex {
         @apply lg:h-full lg:flex lg:flex-col lg:justify-around;
     }
     .input {
-        @apply block w-full px-10 py-4 rounded-lg outline-none bg-gray;
+        @apply block w-full px-10 py-4 rounded-lg bg-off-white 
+        outline-none text-center border border-light-blue;
     }
     .input-badge {
         @apply w-5 absolute top-1/3 right-[2%];
     }
+    .pay-btn {
+        @apply absolute w-[90%] left-1/2 -translate-x-1/2 lg:translate-x-0 bottom-0 mb-3 lg:mb-0 z-10 lg:w-full 
+        p-4 text-light font-bold rounded-lg bg-[#025EFFff] lg:static;
+    }
     .card-details {
-        @apply absolute bg-[#FBFBFDff] w-[70%] h-3/5 left-1/2 -translate-x-1/2 p-4 rounded-lg shadow-xl;
+        @apply absolute bg-white w-[70%] h-1/2 lg:h-[55%] left-1/2 -translate-x-1/2 p-4 text-yinmn-blue rounded-lg shadow-xl
+        lg:-top-[80px] xl:-top-[62px] 2xl:-top-[68px];
+    }
+    .payment-details {
+        @apply flex items-end justify-center shadow-lg bg-gradient-to-b from-platinum to-alice-blue 
+        h-[605px] lg:h-full px-4 py-4 rounded-lg bg-platinum lg:px-8;
     }
 }

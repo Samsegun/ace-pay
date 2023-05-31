@@ -9,6 +9,13 @@ export default {
             "sky-blue": "#236db6",
             dark: "#000000",
             gray: "#d4dde8",
+            "french-gray": "#C1C5D2ff",
+            "space-cadet": "#1E2A52ff",
+            "alice-blue": "#F0F5F9ff",
+            platinum: "#DDE4E8ff",
+            "yinmn-blue": "#454D6Bff",
+            "off-white": "#FCFCFEff",
+            white: "#FBFBFDff",
         },
         extend: {
             backgroundImage: {
