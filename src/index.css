@@ -7,13 +7,12 @@
 :root {
     line-height: 1.5;
     font-family: "Poppins", Arial, Helvetica;
-    /* font-weight: 400;
+}
 
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%; */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* reuseable style rules for tailwindcss */
@@ -38,8 +37,7 @@
         @apply lg:h-full lg:flex lg:flex-col lg:justify-around;
     }
     .input {
-        @apply block w-full px-10 py-4 rounded-lg bg-off-white 
-        outline-none text-center border border-light-blue;
+        @apply block w-full px-10 py-4 text-center border rounded-lg outline-none bg-off-white border-light-blue;
     }
     .input-badge {
         @apply w-5 absolute top-1/3 right-[2%];
