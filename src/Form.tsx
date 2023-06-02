@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, KeyboardEvent, useRef } from "react";
 import pencil from "./assets/edit-pencil.svg";
 // import mcSymbol from "./assets/mc_symbol.svg";
 import verified from "./assets/verified-badge.svg";
@@ -11,6 +11,7 @@ const Form = () => {
         expiry: "",
         password: "",
     });
+    const inputRef = useRef<HTMLInputElement>(null);
 
     // const formHandler = (event: ChangeEvent<HTMLFormElement>) => {
     //     // Remove non-numeric characters from the input value
@@ -23,34 +24,85 @@ const Form = () => {
     // };
 
     const cardNumberHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        console.log("triger");
+        // console.log("triger");
 
+        // const enteredValue = event.target.value;
+        // // validate entered character
+        // const lastChar = enteredValue[enteredValue.length - 1];
+        // if (!parseInt(lastChar)) {
+        //     return;
+        // }
+        // if (/^[-\d\s]+$/.test(event.target.value)) {
+        // if (/\d+/g.test(event.target.value)) {
         let cardNumber = event.target.value;
-        // validate entered character
-        const lastChar = cardNumber[cardNumber.length - 1];
-        if (lastChar !== "0" && !parseInt(lastChar)) {
-            return;
+        const numberLength = cardNumber.length;
+        const regex = /^[a-zA-Z0-9]+$/;
+
+        if (numberLength % 4 === 0) {
+            // for (let i = 1; i < 5; i++) {
+            //     if (regex.test(cardNumber[numberLength - i])) {
+            //         console.log(cardNumber[numberLength - i]);
+            //     } else {
+            //         console.log("no");
+            //     }
+            // }
+            const last4Chars = cardNumber.substring(cardNumber.length - 3);
+            if (regex.test(last4Chars)) {
+                cardNumber = cardNumber + "   -   ";
+                setFormData(prevState => ({
+                    ...prevState,
+                    [event.target.name]: cardNumber,
+                }));
+                return;
+            }
         }
-
         // regex for matching numbers
-        const numbers = cardNumber.match(/\d+/g);
+        // const numbers = cardNumber.match(/\d+/g);
+        // const newNums = numbers?.join("");
 
-        // if (numbers) {
-        //     cardNumber = numbers.join("");
+        // if(cardNumber.includes("-")) {
+        //     // const numbers = cardNumber.match(/\d+/g);
+        //     const formatted = cardNumber.split("   -   ").join("")
+        // const newNums = numbers?.join("");
+
+        // if(newNums?.length % 4 === 0) {
+
+        // }
         // }
 
-        if (
-            numbers?.join("").length === 4 ||
-            numbers?.join("").length === 8 ||
-            numbers?.join("").length === 12
-        ) {
-            cardNumber = cardNumber + "   -   ";
-        }
+        // if (
+        //     cardNumber.length % 4 === 0 &&
+        //     cardNumber[cardNumber.length - 1] !== " "
+        // ) {
+        //     cardNumber = cardNumber + "   -   ";
+        //     setFormData(prevState => ({
+        //         ...prevState,
+        //         [event.target.name]: cardNumber,
+        //     }));
+        // } else {
+        //     setFormData(prevState => ({
+        //         ...prevState,
+        //         [event.target.name]: cardNumber,
+        //     }));
+        // }
 
-        setFormData(prevState => ({
-            ...prevState,
-            [event.target.name]: cardNumber,
-        }));
+        // setFormData(prevState => ({
+        //     ...prevState,
+        //     [event.target.name]: cardNumber,
+        // }));
+        // } else {
+        //     return;
+        // }
+    };
+
+    const keyHandler = (event: KeyboardEvent) => {
+        // console.log(inputRef.current);
+        // if (event.key === "Backspace") {
+        //     setFormData(prevState => ({
+        //         ...prevState,
+        //         cardNumber: prevState.cardNumber.slice(0, -4),
+        //     }));
+        // }
     };
     console.log(formData);
 
@@ -137,9 +189,11 @@ const Form = () => {
                         id='card-number'
                         type='text'
                         inputMode='numeric'
+                        ref={inputRef}
                         value={formData.cardNumber}
                         // pattern='[0-9\s]{13,19}'
                         onChange={cardNumberHandler}
+                        onKeyDown={keyHandler}
                         placeholder='2412   -   7512   -   3412   -   3456'
                         className='text-justify input px-9 sm:px-16'
                     />
