@@ -3,13 +3,20 @@ import pencil from "./assets/edit-pencil.svg";
 // import mcSymbol from "./assets/mc_symbol.svg";
 import verified from "./assets/verified-badge.svg";
 import dots from "./assets/dots.svg";
-import { cardNumberHandler, keyHandler } from "./formUtils";
+import {
+    cardNumberHandler,
+    cvvHandler,
+    expiryHandler,
+    keyHandler,
+    passwordHandler,
+} from "./formUtils";
 
 const Form = () => {
     const [formData, setFormData] = useState({
         cardNumber: "",
         cvvNumber: "",
-        expiry: "",
+        expiryMonth: "",
+        expiryYear: "",
         password: "",
     });
 
@@ -142,7 +149,10 @@ const Form = () => {
                     <input
                         name='cvvNumber'
                         id='cvv'
-                        type='tel'
+                        type='text'
+                        value={formData.cvvNumber}
+                        maxLength={4}
+                        onChange={event => cvvHandler(event, setFormData)}
                         className='input'
                     />
                     <img
@@ -163,18 +173,25 @@ const Form = () => {
                     </span>
                 </label>
 
-                <span className='relative lg:basis-1/2'>
+                <span className='relative flex items-center justify-between lg:basis-1/2'>
                     <input
-                        name='expiry'
+                        name='expiryMonth'
                         id='expiry'
-                        type='tel'
-                        className='input'
+                        type='text'
+                        value={formData.expiryMonth}
+                        maxLength={2}
+                        onChange={event => expiryHandler(event, setFormData)}
+                        className='input basis-2/5'
                     />
-                    {/* <img
-                                            src={dots}
-                                            alt=''
-                                            className='opacity-50 input-badge'
-                                        /> */}
+                    <span>/</span>
+                    <input
+                        name='expiryYear'
+                        type='text'
+                        value={formData.expiryYear}
+                        maxLength={2}
+                        onChange={event => expiryHandler(event, setFormData)}
+                        className='input basis-2/5'
+                    />
                 </span>
             </div>
 
@@ -193,6 +210,8 @@ const Form = () => {
                         name='password'
                         id='password'
                         type='password'
+                        value={formData.password}
+                        onChange={event => passwordHandler(event, setFormData)}
                         className='input'
                     />
                     <img src={dots} alt='' className='opacity-50 input-badge' />
