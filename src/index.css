@@ -47,7 +47,7 @@
         p-4 text-light font-bold rounded-lg bg-[#025EFFff] lg:static;
     }
     .card-details {
-        @apply absolute bg-white w-[70%] h-1/2 lg:h-[55%] left-1/2 -translate-x-1/2 p-4 text-yinmn-blue rounded-lg shadow-xl
+        @apply absolute bg-backdrop-white backdrop-blur-md w-[70%] h-1/2 lg:h-[55%] left-1/2 -translate-x-1/2 p-4 text-yinmn-blue rounded-lg shadow-xl
         lg:-top-[80px] xl:-top-[62px] 2xl:-top-[68px];
     }
     .payment-details {

@@ -108,7 +108,7 @@ function App() {
 
                             <div className='payment-details'>
                                 <div className='w-full'>
-                                    <div className='p-2 border-b-2 border-dashed border-opacity-10 text-space-cadet'>
+                                    <div className='relative p-2 border-b-2 border-dashed border-opacity-10 text-space-cadet'>
                                         <ul className='[&>li]:flex [&>li]:justify-between'>
                                             <li className='mb-4'>
                                                 <span className='text-xs opacity-50'>
@@ -148,6 +148,8 @@ function App() {
                                                 </span>
                                             </li>
                                         </ul>
+                                        <span className='absolute left-0 w-8 h-8 -translate-x-full -translate-y-1 bg-white rounded-full lg:w-12'></span>
+                                        <span className='absolute right-0 w-8 h-8 translate-x-full -translate-y-1 bg-white rounded-full lg:w-12'></span>
                                     </div>
 
                                     <div className='flex items-center justify-between pt-8'>

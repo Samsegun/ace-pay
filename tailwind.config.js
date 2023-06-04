@@ -15,6 +15,7 @@ export default {
             platinum: "#DDE4E8ff",
             "yinmn-blue": "#454D6Bff",
             "off-white": "#FCFCFEff",
+            "backdrop-white": "#FBFBFDd0",
             white: "#FBFBFDff",
         },
         extend: {
