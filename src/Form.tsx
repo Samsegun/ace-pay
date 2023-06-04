@@ -1,17 +1,29 @@
-import { useState } from "react";
+import React, { useState, Dispatch } from "react";
 import pencil from "./assets/edit-pencil.svg";
 // import mcSymbol from "./assets/mc_symbol.svg";
 import verified from "./assets/verified-badge.svg";
 import dots from "./assets/dots.svg";
 import {
+    blurHandler,
     cardNumberHandler,
     cvvHandler,
+    expiryBlurHandler,
     expiryHandler,
     keyHandler,
     passwordHandler,
 } from "./formUtils";
 
-const Form = () => {
+interface CardDetails {
+    cardNumber: string;
+    expiryMonth: string;
+    expiryYear: string;
+}
+
+interface FormProps {
+    setCardDetails: Dispatch<React.SetStateAction<CardDetails>>;
+}
+
+const Form: React.FC<FormProps> = ({ setCardDetails }) => {
     const [formData, setFormData] = useState({
         cardNumber: "",
         cvvNumber: "",
@@ -19,16 +31,6 @@ const Form = () => {
         expiryYear: "",
         password: "",
     });
-
-    // const formHandler = (event: ChangeEvent<HTMLFormElement>) => {
-    //     // Remove non-numeric characters from the input value
-    //     // let sanitizedValue = value.replace(/\D/g, "");
-
-    //     setFormData(prevState => ({
-    //         ...prevState,
-    //         [event.target.name]: event.target.value,
-    //     }));
-    // };
 
     return (
         <form className='form-flex'>
@@ -121,6 +123,7 @@ const Form = () => {
                         onKeyDown={event =>
                             keyHandler(event, formData, setFormData)
                         }
+                        onBlur={event => blurHandler(event, setCardDetails)}
                         placeholder='2412   -   7512   -   3412   -   3456'
                         className='text-justify input px-9 sm:px-16'
                     />
@@ -179,6 +182,9 @@ const Form = () => {
                         value={formData.expiryMonth}
                         maxLength={2}
                         onChange={event => expiryHandler(event, setFormData)}
+                        onBlur={event =>
+                            expiryBlurHandler(event, setCardDetails)
+                        }
                         className='input basis-2/5'
                     />
                     <span>/</span>
@@ -188,6 +194,9 @@ const Form = () => {
                         value={formData.expiryYear}
                         maxLength={2}
                         onChange={event => expiryHandler(event, setFormData)}
+                        onBlur={event =>
+                            expiryBlurHandler(event, setCardDetails)
+                        }
                         className='input basis-2/5'
                     />
                 </span>

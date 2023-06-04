@@ -1,4 +1,4 @@
-import { ChangeEvent, KeyboardEvent, Dispatch } from "react";
+import { ChangeEvent, KeyboardEvent, Dispatch, FocusEvent } from "react";
 
 interface CardDetails {
     cardNumber: string;
@@ -8,35 +8,52 @@ interface CardDetails {
     password: string;
 }
 
+interface CardInfo {
+    cardNumber: string;
+    expiryMonth: string;
+    expiryYear: string;
+}
+
 export const cardNumberHandler = (
     event: ChangeEvent<HTMLInputElement>,
     setFormData: Dispatch<React.SetStateAction<CardDetails>>
 ) => {
     let cardNumber = event.target.value;
-    // regex for testing strings that contain numbers and letters only
-    const regex = /^[a-zA-Z0-9]+$/;
+    const lastChar = cardNumber[cardNumber.length - 1];
 
-    /* if number length is greater than 4 and less than 37(i.e. the total number 
+    if (lastChar === undefined) {
+        setFormData(prevState => ({
+            ...prevState,
+            cardNumber: "",
+        }));
+    }
+
+    if (parseInt(lastChar) === 0 || parseInt(lastChar)) {
+        // regex for testing strings that contain numbers and letters only
+        const regex = /^[a-zA-Z0-9]+$/;
+
+        /* if number length is greater than 4 and less than 37(i.e. the total number 
         of characters including numbers and "   -   " separator), append
         separator after every valid 4 characters 
     */
-    if (cardNumber.length >= 4 && cardNumber.length < 37) {
-        const last4Chars = cardNumber.substring(cardNumber.length - 4);
+        if (cardNumber.length >= 4 && cardNumber.length < 37) {
+            const last4Chars = cardNumber.substring(cardNumber.length - 4);
 
-        if (regex.test(last4Chars)) {
-            cardNumber = cardNumber + "   -   ";
-            setFormData(prevState => ({
-                ...prevState,
-                [event.target.name]: cardNumber,
-            }));
-            return;
+            if (regex.test(last4Chars)) {
+                cardNumber = cardNumber + "   -   ";
+                setFormData(prevState => ({
+                    ...prevState,
+                    [event.target.name]: cardNumber,
+                }));
+                return;
+            }
         }
-    }
 
-    setFormData(prevState => ({
-        ...prevState,
-        [event.target.name]: cardNumber,
-    }));
+        setFormData(prevState => ({
+            ...prevState,
+            [event.target.name]: cardNumber,
+        }));
+    }
 };
 
 // this handler handles the backspace key on the cardNumber input element
@@ -117,4 +134,41 @@ export const passwordHandler = (
         ...prevState,
         [event.target.name]: event.target.value,
     }));
+};
+
+export const blurHandler = (
+    event: FocusEvent<HTMLInputElement>,
+    setInfo: Dispatch<React.SetStateAction<CardInfo>>
+) => {
+    const targetValue = event.target.value.split("   -   ").join("").length;
+
+    if (targetValue) {
+        const last4Chars = event.target.value.slice(-4);
+        setInfo(prevState => ({
+            ...prevState,
+            cardNumber: last4Chars,
+        }));
+    } else {
+        setInfo(prevState => ({
+            ...prevState,
+            cardNumber: "",
+        }));
+    }
+};
+
+export const expiryBlurHandler = (
+    event: FocusEvent<HTMLInputElement>,
+    setInfo: Dispatch<React.SetStateAction<CardInfo>>
+) => {
+    if (event.target.value.length === 2) {
+        setInfo(prevState => ({
+            ...prevState,
+            [event.target.name]: event.target.value,
+        }));
+    } else {
+        setInfo(prevState => ({
+            ...prevState,
+            [event.target.name]: "",
+        }));
+    }
 };

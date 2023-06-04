@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import logo from "./assets/acelogo.png";
 import closeBtn from "./assets/close.svg";
@@ -10,6 +11,12 @@ import docket from "./assets/docket.png";
 import Form from "./Form";
 
 function App() {
+    const [cardDetails, setCardDetails] = useState({
+        cardNumber: "",
+        expiryMonth: "",
+        expiryYear: "",
+    });
+
     return (
         <div className='min-h-screen bg-center bg-no-repeat bg-cover bg-flower flex-items-center'>
             <div className='main-wrapper'>
@@ -55,7 +62,7 @@ function App() {
                         <section className='w-full lg:w-auto lg:basis-[65%]'>
                             {/* form */}
                             <div className='h-full my-8 lg:my-0'>
-                                <Form />
+                                <Form setCardDetails={setCardDetails} />
                             </div>
                         </section>
 
@@ -88,12 +95,32 @@ function App() {
                                                         className='w-8'
                                                     />
                                                 </span>
-                                                <span>3456</span>
+                                                {/* <span>3456</span> */}
+                                                <span>
+                                                    {cardDetails.cardNumber ? (
+                                                        cardDetails.cardNumber
+                                                    ) : (
+                                                        <img
+                                                            src={fourDots}
+                                                            alt='coded'
+                                                            className='w-8'
+                                                        />
+                                                    )}
+                                                </span>
                                             </span>
                                         </div>
 
                                         <div className='flex items-center justify-between text-xs'>
-                                            <span>09/22</span>
+                                            {/* <span>09/22</span> */}
+                                            <span>
+                                                {cardDetails.expiryMonth
+                                                    ? cardDetails.expiryMonth
+                                                    : "00"}{" "}
+                                                /
+                                                {cardDetails.expiryYear
+                                                    ? cardDetails.expiryYear
+                                                    : "00"}
+                                            </span>
                                             <span>
                                                 <img
                                                     src={masterCard}
