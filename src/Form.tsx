@@ -30,8 +30,6 @@ const Form = () => {
     //     }));
     // };
 
-    console.log(formData);
-
     return (
         <form className='form-flex'>
             <div className='mb-8'>
